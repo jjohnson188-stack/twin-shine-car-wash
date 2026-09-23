@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Twin Shine Car Wash — Thibodaux, LA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0F4C4C;
+    --teal-dark: #0A3535;
+    --gold: #E8A23A;
+    --rust: #C1502E;
+    --cream: #F5EFDD;
+    --ink: #1A1D1A;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  h1, h2, h3, .brand, nav a, .btn {
+    font-family: 'Oswald', system-ui, sans-serif;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    position: sticky; top: 0; top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: var(--teal-dark);
+    border-bottom: 3px solid var(--gold);
+  }
+  header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 14px; padding-bottom: 14px;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .brand {
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+  }
+  .brand span { color: var(--gold); }
+  nav { display: flex; gap: 22px; }
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+  }
+  nav a:hover, nav a:focus-visible { border-bottom-color: var(--gold); }
+
+  .hero {
+    background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: var(--cream);
+    padding: 64px 0 56px;
+  }
+  .hero .wrap { display: grid; gap: 18px; }
+  .hero .eyebrow { color: var(--gold); font-weight: 500; font-size: 1rem; }
+  .hero h1 {
+    font-size: clamp(2.3rem, 6vw, 3.6rem);
+    line-height: 1.05;
+    margin: 0;
+    font-weight: 700;
+    max-width: 14ch;
+  }
+  .hero p.lede {
+    max-width: 52ch;
+    font-size: 1.15rem;
+    color: #E2E7DF;
+    margin: 0;
+  }
+  .hero-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+  .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--teal-dark);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 13px 26px;
+    border-radius: 3px;
+    font-size: 1.02rem;
+    letter-spacing: 0.3px;
+    border: 2px solid var(--gold);
+  }
+  .btn.outline {
+    background: transparent;
+    color: var(--cream);
+    border: 2px solid var(--cream);
+  }
+  .btn:hover { filter: brightness(1.06); }
+
+  section { padding: 56px 0; }
+  section.alt { background: #EFE6CC; }
+  h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+    font-weight: 600;
+    margin: 0 0 26px;
+    color: var(--teal-dark);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+  @media (max-width: 620px) { .about-grid { grid-template-columns: 1fr; } }
+  .owner-card {
+    background: var(--cream);
+    border: 1px solid #D8CBA0;
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .owner-card h3 { margin: 0 0 6px; font-size: 1.15rem; color: var(--teal-dark); }
+  .owner-card .role { color: var(--rust); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; }
+  .owner-card p { margin: 0; font-size: 0.98rem; }
+
+  .services-list {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid #D8CBA0;
+  }
+  .service-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid #D8CBA0;
+  }
+  .service-row h3 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 500; color: var(--ink); }
+  .service-row p { margin: 0; font-size: 0.95rem; color: #4A4A42; max-width: 46ch; }
+  .price { font-family: 'Oswald', sans-serif; font-weight: 600; color: var(--rust); font-size: 1.15rem; white-space: nowrap; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  @media (max-width: 620px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-block h3 {
+    font-size: 1.05rem;
+    color: var(--teal-dark);
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+  .info-block p { margin: 0 0 6px; }
+  .info-block a.contact-link {
+    color: var(--rust); font-weight: 600; text-decoration: none;
+  }
+  .info-block a.contact-link:hover { text-decoration: underline; }
+
+  footer {
+    background: var(--teal-dark);
+    color: #C9D2C6;
+    padding: 26px 0;
+    font-size: 0.9rem;
+  }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer .brand { font-size: 1rem; }
+
+  ::selection { background: var(--gold); color: var(--teal-dark); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#home">Twin Shine <span>Car Wash</span></a>
+      <div style="color:#C9D2C6; font-size:0.8rem; margin-top:2px;">twinshinecarwash.com</div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="eyebrow">Thibodaux, Louisiana</div>
+    <h1>Hand-washed clean, bayou proud.</h1>
+    <p class="lede">Twin Shine Car Wash is a family-owned wash on the bayou, run by brothers Jacob and Joshua Johnson. We treat every truck, sedan, and work van like it's parked in our own driveway.</p>
+    <div class="hero-row">
+      <a class="btn" href="#services">See services & pricing</a>
+      <a class="btn outline" href="#contact">Get directions</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>Meet the owners</h2>
+    <div class="about-grid">
+      <div class="owner-card">
+        <h3>Jacob Johnson</h3>
+        <div class="role">Co-Owner</div>
+        <p>Born and raised in New Orleans, Jacob moved down Highway 1 to Thibodaux to open Twin Shine with his brother. He runs the front of the shop and knows most customers by name — and by the make and model they drive.</p>
+        <p style="margin-top:10px;">
+          <a class="contact-link" href="https://www.instagram.com/rosegoldjacob1/" target="_blank" rel="noopener">Instagram</a>
+          &nbsp;·&nbsp;
+          <a class="contact-link" href="https://www.linkedin.com/in/jacob-johnson-a56455390" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+      <div class="owner-card">
+        <h3>Joshua Johnson</h3>
+        <div class="role">Co-Owner</div>
+        <p>Jacob's twin brother, Joshua handles the equipment, the detailing bays, and making sure every wash meets the standard the two of them grew up with. He's the one who'll catch a spot you missed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="services">
+  <div class="wrap">
+    <h2>Services & pricing</h2>
+    <div class="services-list">
+      <div class="service-row">
+        <div>
+          <h3>Bayou Basic</h3>
+          <p>Exterior hand wash, tire shine, and a quick dry.</p>
+        </div>
+        <div class="price">$12</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <h3>Full Shine</h3>
+          <p>Exterior wash, interior vacuum, windows in and out, tire shine.</p>
+        </div>
+        <div class="price">$22</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <h3>Twin Detail</h3>
+          <p>Full interior and exterior detail, wax, and dash and console clean.</p>
+        </div>
+        <div class="price">$65</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <h3>Truck & Work Van</h3>
+          <p>Sized for bigger vehicles — bed rinse and cab included.</p>
+        </div>
+        <div class="price">$18+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Visit us</h2>
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Location</h3>
+        <p>Twin Shine Car Wash</p>
+        <p>Thibodaux, LA 70301</p>
+        <p>Serving Lafourche Parish and the surrounding bayou region.</p>
+      </div>
+      <div class="info-block">
+        <h3>Hours & contact</h3>
+        <p>Mon–Sat: 8:00 AM – 6:00 PM</p>
+        <p>Sun: 10:00 AM – 4:00 PM</p>
+        <p><a class="contact-link" href="mailto:info@twinshinecarwash.com">info@twinshinecarwash.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Twin Shine Car Wash</div>
+    <div>twinshinecarwash.com · Owned and operated by Jacob & Joshua Johnson, Thibodaux, LA</div>
+  </div>
+</footer>
+
+</body>
+</html>
